@@ -1,4 +1,4 @@
-<div>
+<!-- <div class="form-group">
   <h1>Threads</h1>
 
   <form name="newThreadForm">
@@ -20,4 +20,35 @@
     </li>
   </ul>
 
+</div> -->
+<div class="row">
+    <form>
+        <div class="form-group col-md-10 col-md-offset-3">
+            <label>Thread Title</label>
+            <input type="text" ng-model='newThread.title' placeholder='New thread title...' required />
+            <label>Username</label>
+            <input type="text" ng-model='newThread.username' placeholder='Username' required />
+            <button ng-disabled='newThreadForm.$invalid' ng-click='createThread(username, newThreadTitle)' class="btn btn-success">
+                Add Thread
+            </button>
+        </div>
+    </form>
+</div>
+<div class="row">
+    <div>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <ul class="list-group">
+            <li ng-repeat='thread in threads' class="list-group-item">
+                <a ui-sref='thread({threadId: thread.$id})'>
+                    <span>{{ thread.title }}</span>
+                    <span>(by {{ thread.username }})</span>
+                </a>
+            </li>
+        </ul>
+    </div>
 </div>
